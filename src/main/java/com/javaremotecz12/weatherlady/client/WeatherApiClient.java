@@ -8,11 +8,13 @@ import com.javaremotecz12.weatherlady.model.WeatherData;
 import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 @Component
 @Slf4j
+@Service
 public class WeatherApiClient {
     private final String apiKey;
     private final String apiUrl;

@@ -12,8 +12,7 @@ import java.util.List;
 public interface WeatherDataRepository extends JpaRepository<WeatherData,Long> {
     @Override
     List<WeatherData> findAll();
-    List<WeatherData> findByCityAndDateBetween(String city, String startDate, String endDate);
-    List<WeatherData> findByCity(String city);
+
     List<WeatherData> findByLocationAndDateBetween(
             Location location,
             LocalDateTime start,

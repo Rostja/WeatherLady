@@ -10,9 +10,7 @@ import java.awt.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "weather_data", indexes = {
-        @Index(name = "idx_weather_data_location", columnList = "location_id")
-})
+@Table(name = "weather_data")
 @Data
 @Builder
 @AllArgsConstructor
@@ -29,11 +27,11 @@ public class WeatherData {
     @Column(length = 50)
     private String windDirection;
 
-    @Column(nullable = false)
+    @Column(name = "date")
     private LocalDateTime date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "location_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "location_id")
     private Location location;
 
     public WeatherData(){

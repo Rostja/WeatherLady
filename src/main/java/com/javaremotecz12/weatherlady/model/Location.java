@@ -1,18 +1,27 @@
 package com.javaremotecz12.weatherlady.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name="locations")
+@Table(name="location")
 @Data
+@Builder
+@AllArgsConstructor
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @Column(name = "id")
+    private Long id;
+    @Column(nullable = false)
     private double longitude;
+    @Column(nullable = false)
     private double latitude;
+    @Column(nullable = false)
     private String city;
     private String region;
     private String country;
@@ -22,11 +31,11 @@ public class Location {
     public Location(){
 
     }
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
