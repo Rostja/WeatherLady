@@ -2,6 +2,7 @@ package com.javaremotecz12.weatherlady.service;
 
 
 import com.javaremotecz12.weatherlady.client.WeatherApiClient;
+import com.javaremotecz12.weatherlady.exception.LocationNotFoundException;
 import com.javaremotecz12.weatherlady.model.Location;
 import com.javaremotecz12.weatherlady.model.WeatherData;
 import com.javaremotecz12.weatherlady.repository.LocationRepository;
@@ -33,6 +34,6 @@ public class WeatherService {
     public WeatherData getWeatherData(String city){
         Location location = locationRepository.findByCity(city)
                 .orElseThrow(() -> new LocationNotFoundException(city));
-        return weatherApiClient.getWeatherData(location, null);
+        return weatherApiClient.getWeatherData(location);
     }
 }
