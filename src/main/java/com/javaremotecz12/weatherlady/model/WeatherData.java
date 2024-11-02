@@ -1,38 +1,56 @@
 package com.javaremotecz12.weatherlady.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
+
+import java.awt.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="weather_data")
+@Table(name = "weather_data", indexes = {
+        @Index(name = "idx_weather_data_location", columnList = "location_id")
+})
 @Data
+@Builder
+@AllArgsConstructor
 public class WeatherData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    private double temperature;
-    private double pressure;
-    private double humidity;
-    private double windSpeed;
+    private Long id;
+
+    private Double temperature;
+    private Double pressure;
+    private Double humidity;
+    private Double windSpeed;
+
+    @Column(length = 50)
     private String windDirection;
+
+    @Column(nullable = false)
     private LocalDateTime date;
-    @ManyToOne
-    @JoinColumn(name = "location_id")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id", nullable = false)
     private Location location;
 
     public WeatherData(){
 
     }
 
-    public String getId() {
-        return id;
+    public WeatherData(double temperature, double pressure, double humidity, double windSpeed, String windDirection, LocalDateTime date, Location location) {
+
+        this.temperature = temperature;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        this.windSpeed = windSpeed;
+        this.windDirection = windDirection;
+        this.date = date;
+        this.location = location;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public double getTemperature() {
         return temperature;
@@ -89,4 +107,6 @@ public class WeatherData {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+
 }

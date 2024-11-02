@@ -31,9 +31,14 @@ public class WeatherService {
         log.info("Adding new location: {}", location.getCity());
         return locationRepository.save(location);
             }
-    public WeatherData getWeatherData(String city){
+    public WeatherData getWeatherData(String city) {
+        log.debug("Fetching weather data for city: {}", city);
         Location location = locationRepository.findByCity(city)
-                .orElseThrow(() -> new LocationNotFoundException(city));
-        return weatherApiClient.getWeatherData(location);
+                .orElseThrow(() -> {
+                    log.error("Location not found for city: {}", city);
+                    return new LocationNotFoundException(city);
+                });
+        WeatherData weatherData = weatherApiClient.getWeatherData(location);
+        return weatherDataRepository.save(weatherData);  // Save the weather data before returning
     }
 }
