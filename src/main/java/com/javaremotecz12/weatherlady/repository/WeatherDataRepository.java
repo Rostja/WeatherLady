@@ -14,7 +14,7 @@ public interface WeatherDataRepository extends JpaRepository<WeatherData,Long> {
     List<WeatherData> findAll();
     List<WeatherData> findByCityAndDateBetween(String city, String startDate, String endDate);
     List<WeatherData> findByCity(String city);
-    List<WeatherData> findByLocationAndTimestampBetween(
+    List<WeatherData> findByLocationAndDateBetween(
             Location location,
             LocalDateTime start,
             LocalDateTime end
