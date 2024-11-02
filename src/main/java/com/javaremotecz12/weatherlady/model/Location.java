@@ -1,11 +1,15 @@
 package com.javaremotecz12.weatherlady.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+
 
 @Entity
+@Table(name="locations")
+@Data
 public class Location {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private double longitude;
     private double latitude;

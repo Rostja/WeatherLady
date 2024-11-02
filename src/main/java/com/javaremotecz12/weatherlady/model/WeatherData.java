@@ -1,9 +1,13 @@
 package com.javaremotecz12.weatherlady.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name="weather_data")
+@Data
 public class WeatherData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +19,7 @@ public class WeatherData {
     private String windDirection;
     private LocalDateTime date;
     @ManyToOne
+    @JoinColumn(name = "location_id")
     private Location location;
 
     public WeatherData(){
