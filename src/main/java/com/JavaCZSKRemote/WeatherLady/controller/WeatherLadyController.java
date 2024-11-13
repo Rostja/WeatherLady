@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WeatherLadyController {
 
-    @RequestMapping("/mainForm")
-    public String mainForm(){
+    @RequestMapping("/showForm")
+    public String showForm(){
 
         return "main-form";
     }
 
-    @GetMapping("/main")
-    public String main(Model theModel) {
+    @GetMapping("/processForm")
+    public String processForm(Model theModel) {
         theModel.addAttribute("theDate", java.time.LocalDateTime.now());
 
         return "main";

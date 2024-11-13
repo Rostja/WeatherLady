@@ -8,8 +8,12 @@
 </head>
 
 <body>
-
+    Welcome to my weather forecast application
+    <br><br>
 <p th:text="'Time on the server is ' + ${theDate}" class="server-time"></p>
+    <br>
+Latitude: <span th:text="${param.latitude}"></span>
+Longitude: <span th:text="${param.longitude}"></span>
 
 </body>
 </html>
