@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WeatherLady Forecast</title>
+</head>
+<body>
+
+<h3>Location Coordinates Form</h3>
+
+<form th:action="@{/processLocationForm}" th:object="${location}" method="POST">
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude" th:field="*{latitude}" required><br><br>
+
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude" th:field="*{longitude}" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
