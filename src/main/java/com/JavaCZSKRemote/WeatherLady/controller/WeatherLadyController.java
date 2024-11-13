@@ -24,12 +24,22 @@ public class WeatherLadyController {
 
     @GetMapping("/processFormVersionTwo")
     public String processFormVersionTwo(HttpServletRequest request, Model theModel) {
-        String coordinates =request.getParameter("latitude" + " and " + "longitude");
-        coordinates = coordinates.toString();
-        String result = "My coordinates are " + coordinates;
+        String latitude = request.getParameter("latitude");
+        String longitude = request.getParameter("longitude");
 
-        theModel.addAttribute("theDate", java.time.LocalDateTime.now());
-        theModel.addAttribute("message", result);
+        double[] coordinates = new double[2];
+
+        try {
+            coordinates[0] = Double.parseDouble(latitude);
+            coordinates[1] = Double.parseDouble(longitude);
+
+            String result = String.format("My coordinates are:  latitude = %.6f, longitude = %.6f", coordinates[0], coordinates[1]);
+
+            theModel.addAttribute("theDate", java.time.LocalDateTime.now());
+            theModel.addAttribute("message", result);
+        } catch (NumberFormatException e) {
+            theModel.addAttribute("message", "Invalid coordinates format");
+        }
 
         return "main";
     }
