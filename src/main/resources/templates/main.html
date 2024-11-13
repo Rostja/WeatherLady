@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>WeatherLady Forecast</title>
+    <link rel="stylesheet"
+          th:href="@{/css/weatherlady.css}"/>
 </head>
 
 <body>
 
-<p th:text="'Time on the server is ' + ${theDate}"></p>
+<p th:text="'Time on the server is ' + ${theDate}" class="server-time"></p>
 
 </body>
 </html>
