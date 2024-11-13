@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WeatherLadyController {
@@ -26,6 +27,28 @@ public class WeatherLadyController {
     public String processFormVersionTwo(HttpServletRequest request, Model theModel) {
         String latitude = request.getParameter("latitude");
         String longitude = request.getParameter("longitude");
+
+        double[] coordinates = new double[2];
+
+        try {
+            coordinates[0] = Double.parseDouble(latitude);
+            coordinates[1] = Double.parseDouble(longitude);
+
+            String result = String.format("My coordinates are:  latitude = %.6f, longitude = %.6f", coordinates[0], coordinates[1]);
+
+            theModel.addAttribute("theDate", java.time.LocalDateTime.now());
+            theModel.addAttribute("message", result);
+        } catch (NumberFormatException e) {
+            theModel.addAttribute("message", "Invalid coordinates format");
+        }
+
+        return "main";
+    }
+
+    @GetMapping("/processFormVersionTree")
+    public String processFormVersionTree(@RequestParam("latitude") String latitude,
+                                         @RequestParam("longitude") String longitude,
+                                         Model theModel) {
 
         double[] coordinates = new double[2];
 
