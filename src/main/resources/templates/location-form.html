@@ -26,6 +26,18 @@
             </option>
         </select>
     </label>
+    <br><br>
+
+    Language:
+    <label>
+        <select th:field="*{timeType}">
+            <option th:each="tempLanguage : ${languages}"
+                    th:value="${tempLanguage}"
+                    th:text="${tempLanguage}">
+            </option>
+        </select>
+    </label>
+    <br><br>
 
     <input type="submit" value="Submit">
 </form>
