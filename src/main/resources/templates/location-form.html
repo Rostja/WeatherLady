@@ -15,6 +15,18 @@
     <label for="longitude">Longitude:</label>
     <input type="text" id="longitude" name="longitude" th:field="*{longitude}" required><br><br>
 
+    <br><br>
+
+    Time:
+    <label>
+        <select th:field="*{timeType}">
+            <option th:each="timeOption : ${T(com.JavaCZSKRemote.WeatherLady.model.TimeType).values()}"
+                    th:value="${timeOption}"
+                    th:text="${timeOption.description}">
+            </option>
+        </select>
+    </label>
+
     <input type="submit" value="Submit">
 </form>
 

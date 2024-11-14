@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LocationController {
-    @GetMapping("/showForm")
-    public String showForm(Model theModel) {
+    @GetMapping("/showLocationForm")
+    public String showLocationForm(Model theModel) {
 
         Location theLocation = new Location();
         theModel.addAttribute("location", theLocation);
