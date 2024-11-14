@@ -34,7 +34,7 @@ public class LocationController {
             BindingResult theBindingResult) {
 
         if (theBindingResult.hasErrors()){
-            return "customer-form";
+            return "location-form";
         } else {
             System.out.println("theLocation: "
                     + theLocation.getLatitude() + " " + theLocation.getLongitude());

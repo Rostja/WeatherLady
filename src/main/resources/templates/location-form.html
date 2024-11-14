@@ -12,17 +12,20 @@
 
 <form th:action="@{/processLocationForm}" th:object="${location}" method="POST">
 
-    <label for="latitude">Latitude:</label>
-    <input type="text" id="latitude" name="latitude" th:field="*{latitude}" required><br><br>
     <span th:if="${#fields.hasErrors('latitude')}"
           th:errors="*{latitude}"
           class="error"></span>
+    <br>
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude" th:field="*{latitude}" ><br><br>
 
-    <label for="longitude">Longitude:</label>
-    <input type="text" id="longitude" name="longitude" th:field="*{longitude}" required><br><br>
+
     <span th:if="${#fields.hasErrors('longitude')}"
           th:errors="*{longitude}"
           class="error"></span>
+    <br>
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude" th:field="*{longitude}" ><br><br>
 
     <br><br>
 

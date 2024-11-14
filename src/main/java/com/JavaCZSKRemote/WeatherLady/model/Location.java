@@ -1,5 +1,7 @@
 package com.JavaCZSKRemote.WeatherLady.model;
 
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -11,12 +13,14 @@ import lombok.*;
 @NoArgsConstructor
 public class Location {
 
-    @NotNull(message="latitude is required")
-    @Size(min=1, message="latitude is required")
+    @NotNull(message = "Latitude is required")
+    @DecimalMin(value = "-90.0", inclusive = true, message = "Latitude must be greater than or equal to -90")
+    @DecimalMax(value = "90.0", inclusive = true, message = "Latitude must be less than or equal to 90")
     private Double latitude;
 
-    @NotNull(message="longitude is required")
-    @Size(min=1, message="longitude is required")
+    @NotNull(message = "Longitude is required")
+    @DecimalMin(value = "-180.0", inclusive = true, message = "Longitude must be greater than or equal to -180")
+    @DecimalMax(value = "180.0", inclusive = true, message = "Longitude must be less than or equal to 180")
     private Double longitude;
 
     private TimeType timeType;
