@@ -1,5 +1,8 @@
 package com.JavaCZSKRemote.WeatherLady.model;
 
+import lombok.Getter;
+
+@Getter
 public enum UnitSystem {
     STANDARD("standard", "Kelvin, m/s", "K"),
     METRIC("metric", "Celsius, m/s", "°C"),
@@ -15,15 +18,4 @@ public enum UnitSystem {
         this.tempSymbol = tempSymbol;
     }
 
-    public String getApiValue() {
-        return apiValue;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getTempSymbol() {
-        return tempSymbol;
-    }
 }
