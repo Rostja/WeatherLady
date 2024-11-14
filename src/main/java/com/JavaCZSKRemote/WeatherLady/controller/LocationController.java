@@ -1,9 +1,11 @@
 package com.JavaCZSKRemote.WeatherLady.controller;
 
 import com.JavaCZSKRemote.WeatherLady.model.Location;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,10 +29,18 @@ public class LocationController {
     }
 
     @PostMapping("/processLocationForm")
-    public String processLocationForm(@ModelAttribute("location") Location theLocation) {
-        System.out.println("theLocation: "
-                + theLocation.getLatitude() + " " + theLocation.getLongitude());
+    public String processLocationForm(
+            @Valid @ModelAttribute("location") Location theLocation,
+            BindingResult theBindingResult) {
 
-        return "location-confirmation";
+        if (theBindingResult.hasErrors()){
+            return "customer-form";
+        } else {
+            System.out.println("theLocation: "
+                    + theLocation.getLatitude() + " " + theLocation.getLongitude());
+
+            return "location-confirmation";
+        }
+
     }
 }
