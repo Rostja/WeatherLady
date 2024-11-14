@@ -33,6 +33,9 @@ public class LocationController {
             @Valid @ModelAttribute("location") Location theLocation,
             BindingResult theBindingResult) {
 
+        System.out.println("Binding results: " + theBindingResult.toString());
+        System.out.println("\n\n\n");
+
         if (theBindingResult.hasErrors()){
             return "location-form";
         } else {
