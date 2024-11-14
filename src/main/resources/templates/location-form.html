@@ -39,6 +39,18 @@
     </label>
     <br><br>
 
+    Unit of measurement:
+    <label>
+        <div th:each="unit : ${T(com.JavaCZSKRemote.WeatherLady.model.UnitSystem).values()}">
+            <input type="radio"
+                   th:field="*{unitSystem}"
+                   th:value="${unit}"
+                   th:id="${unit}"/>
+            <label th:for="${unit}" th:text="${unit.description}"></label>
+        </div>
+    </label>
+    <br><br>
+
     <input type="submit" value="Submit">
 </form>
 

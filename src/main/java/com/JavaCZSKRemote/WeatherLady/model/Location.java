@@ -12,6 +12,15 @@ public class Location {
     private String latitude;
     private String longitude;
     private TimeType timeType;
+    private UnitSystem unitSystem;
+
+    public UnitSystem getUnitSystem() {
+        return unitSystem;
+    }
+
+    public void setUnitSystem(UnitSystem unitSystem) {
+        this.unitSystem = unitSystem;
+    }
 
     public TimeType getTimeType() {
         return timeType;
