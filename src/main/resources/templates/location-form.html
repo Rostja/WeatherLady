@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>WeatherLady Forecast</title>
+    <link rel="stylesheet"
+          th:href="@{/css/weatherlady.css}"/>
 </head>
 <body>
 
 <h3>Location Coordinates Form</h3>
 
 <form th:action="@{/processLocationForm}" th:object="${location}" method="POST">
+
     <label for="latitude">Latitude:</label>
     <input type="text" id="latitude" name="latitude" th:field="*{latitude}" required><br><br>
+    <span th:if="${#fields.hasErrors('latitude')}"
+          th:errors="*{latitude}"
+          class="error"></span>
 
     <label for="longitude">Longitude:</label>
     <input type="text" id="longitude" name="longitude" th:field="*{longitude}" required><br><br>
+    <span th:if="${#fields.hasErrors('longitude')}"
+          th:errors="*{longitude}"
+          class="error"></span>
 
     <br><br>
 
