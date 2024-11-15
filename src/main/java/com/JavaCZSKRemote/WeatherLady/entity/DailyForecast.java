@@ -46,4 +46,7 @@ public class DailyForecast {
 
     @Column(name = "weather_icon")
     private String weatherIcon;
+
+    @OneToOne(mappedBy = "dailyForecast", cascade = CascadeType.ALL)
+    private Temp temp;
 }
