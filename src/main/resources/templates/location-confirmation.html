@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>WeatherLady Confirmation</title>
+    <link rel="stylesheet"
+          th:href="@{/css/weatherlady.css}"/>
 </head>
 <body>
 
 <h3>WeatherLady Confirmation</h3>
 
+<br>
+<p th:text="'Time on the server is ' + ${theDate}" class="server-time"></p>
+<br>
+
 The location is confirmed: <span th:text="${location.latitude} + ' ' + ${location.longitude}"></span>
+<br>
+Message: <span th:text="${message}"></span>
+
 <br><br>
 
 What time type of weather forecast I'll see :
