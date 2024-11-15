@@ -1,6 +1,6 @@
 package com.JavaCZSKRemote.WeatherLady.controller;
 
-import com.JavaCZSKRemote.WeatherLady.model.Location;
+import com.JavaCZSKRemote.WeatherLady.entity.Location;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

@@ -1,8 +1,10 @@
-package com.JavaCZSKRemote.WeatherLady.model;
+package com.JavaCZSKRemote.WeatherLady.entity;
 
 import lombok.Getter;
 
+
 @Getter
+
 public enum TimeType {
     CURRENT("current", "Aktuálne počasie"),
     MINUTELY("minutely", "Minútová predpoveď na 1 hodinu"),

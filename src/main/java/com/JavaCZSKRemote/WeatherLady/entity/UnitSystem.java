@@ -1,4 +1,4 @@
-package com.JavaCZSKRemote.WeatherLady.model;
+package com.JavaCZSKRemote.WeatherLady.entity;
 
 import lombok.Getter;
 

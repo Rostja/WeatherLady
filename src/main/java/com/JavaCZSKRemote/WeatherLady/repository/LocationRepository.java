@@ -1,6 +1,6 @@
 package com.JavaCZSKRemote.WeatherLady.repository;
 
-import com.JavaCZSKRemote.WeatherLady.model.Location;
+import com.JavaCZSKRemote.WeatherLady.entity.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
